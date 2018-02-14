@@ -71,6 +71,7 @@ public class TuneBook {
 
 
 
+  // Display all tunes
   public String toString() {
     String s = "";
 
@@ -80,6 +81,17 @@ public class TuneBook {
     }
 
     return s;
+  }
+
+  // Display a tune thats similar to
+  public Tune findTune(String matchingTitle) {
+    for (Tune t : tunes) {
+      if (t.getTitle().toLowerCase().contains(matchingTitle.toLowerCase())) {
+        return t;
+      }
+    }
+
+    return null;
   }
 
 
