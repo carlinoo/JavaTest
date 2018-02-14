@@ -6,14 +6,12 @@ public class Tune {
   private String altTitle;
   private String notation;
 
-
-  // Contructor
-  Tune(int _x, String _title, String _altTitle, String _notation) {
-    this.x = _x;
-    this.title = _title;
-    this.altTitle = _altTitle;
-    this.notation = _notation;
+  Tune() {
+    this.title = "";
+    this.altTitle = "";
+    this.notation = "";
   }
+
 
 
   public int getX() {
@@ -30,6 +28,26 @@ public class Tune {
 
   public String getNotation() {
     return this.notation;
+  }
+
+  public void setX(int _x) {
+    this.x = _x;
+  }
+
+  public void setTitle(String _title) {
+    this.title = _title;
+  }
+
+  public void setAltTitle(String _altTitle) {
+    this.altTitle = _altTitle;
+  }
+
+  public void setNotation(String _notation) {
+    this.notation = _notation;
+  }
+
+  public void addToNotation(String _notation) {
+    this.notation += _notation;
   }
 
   // To display

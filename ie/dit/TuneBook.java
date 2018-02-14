@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TuneBook {
-  private ArrayList<Tune> tunes = new ArrayList<Tune>;
+  private ArrayList<Tune> tunes = new ArrayList<Tune>();
 
 
   // Constructor
@@ -18,14 +18,38 @@ public class TuneBook {
         inputStream = new BufferedReader(new FileReader(s));
 
         String l;
+        Tune tune = new Tune();
+        boolean isNewTune = true;
+        boolean isTitleSet = false;
 
         while ((l = inputStream.readLine()) != null) {
 
           // If there is an empty line, there is a new tume
           if (l.trim().isEmpty()) {
-            System.out.println("LINEEEEE");
+            tunes.add(tune);
+            isNewTune = true;
+            isTitleSet = false;
+            tune = new Tune();
+            continue;
+          } else {
+            isNewTune = false;
           }
-          System.out.println(l);
+
+          if (l.startsWith("X:")) {
+            // If there is a title
+            tune.setX(Integer.parseInt(l.substring(2)));
+          } else if (l.startsWith("T:")) {
+            // If the title is set, set the altitle
+            if (!isTitleSet) {
+              tune.setTitle(l.substring(2));
+              isTitleSet = true;
+            } else {
+              tune.setAltTitle(l.substring(2));
+            }
+          }
+
+          // Add notation always
+          tune.addToNotation(l);
         }
 
 
