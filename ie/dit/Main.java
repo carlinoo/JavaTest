@@ -1,7 +1,9 @@
 package ie.dit;
+// import Tune;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello");
+    Tune t = new Tune();
+    System.out.println(t);
   }
 }
