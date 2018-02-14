@@ -6,6 +6,7 @@ public class Main {
     // Get the full path and pass it as a parameter
     TuneBook tb = new TuneBook(System.getProperty("user.dir") + "/file.abc");
     // System.out.println(tb);
-    System.out.println(tb.findTune("Hello World"));
+    // System.out.println(tb.findTune("Hello World"));
+    tb.findTune("A").play();
   }
 }

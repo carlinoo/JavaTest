@@ -48,7 +48,7 @@ public class TuneBook {
           }
 
           // Add notation always
-          tune.addToNotation(l);
+          tune.addToNotation(l + "\n");
         }
 
 

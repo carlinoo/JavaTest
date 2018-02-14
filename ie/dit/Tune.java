@@ -1,6 +1,6 @@
 package ie.dit;
 
-public class Tune {
+public class Tune implements Player {
   private int x;
   private String title;
   private String altTitle;
@@ -54,5 +54,11 @@ public class Tune {
   public String toString() {
     String s = String.valueOf(this.x) + ", " + this.title + ", " + this.altTitle;
     return s;
+  }
+
+
+  // Method to play tune on console
+  public void play() {
+    System.out.println(this.notation);
   }
 }
