@@ -22,13 +22,17 @@ public class TuneBook {
         boolean isTitleSet = false;
         boolean isFirstTune = true;
 
+        // Until we don't get to the end of file
         while ((l = inputStream.readLine()) != null) {
 
           // If it starts with X: then its a new song
           if (l.startsWith("X:")) {
+            // If it is not the first tune, we add it to the list.
+            // I use the boolean to make sure the first comments of the file are not added as a tune
             if (!isFirstTune) {
               tunes.add(tune);
             }
+
             isFirstTune = false;
             isTitleSet = false;
             tune = new Tune();
@@ -55,9 +59,8 @@ public class TuneBook {
     } catch (IOException e) {
         e.printStackTrace();
 
-
-
     } finally {
+      // Close all the inputStream
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -83,17 +86,17 @@ public class TuneBook {
     return s;
   }
 
-  // Display a tune thats similar to
+  // Display a tune that contains the matchingTitle
   public Tune findTune(String matchingTitle) {
     for (Tune t : tunes) {
       if (t.getTitle().toLowerCase().contains(matchingTitle.toLowerCase())) {
+        // I use toLowerCase to make it case insensitive
         return t;
       }
     }
 
+    // If there isn't any, return null
     return null;
   }
-
-
 
 }
