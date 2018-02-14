@@ -19,20 +19,19 @@ public class TuneBook {
 
         String l;
         Tune tune = new Tune();
-        boolean isNewTune = true;
         boolean isTitleSet = false;
+        boolean isFirstTune = true;
 
         while ((l = inputStream.readLine()) != null) {
 
-          // If there is an empty line, there is a new tume
-          if (l.trim().isEmpty()) {
-            tunes.add(tune);
-            isNewTune = true;
+          // If it starts with X: then its a new song
+          if (l.startsWith("X:")) {
+            if (!isFirstTune) {
+              tunes.add(tune);
+            }
+            isFirstTune = false;
             isTitleSet = false;
             tune = new Tune();
-            continue;
-          } else {
-            isNewTune = false;
           }
 
           if (l.startsWith("X:")) {
@@ -68,7 +67,21 @@ public class TuneBook {
             }
         }
     }
+  } // end constructor
+
+
+
+  public String toString() {
+    String s = "";
+
+    for (Tune t : tunes) {
+      s += t;
+      s += "\n";
+    }
+
+    return s;
   }
+
 
 
 }
