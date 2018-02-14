@@ -7,6 +7,15 @@ public class Tune {
   private String notation;
 
 
+  // Contructor
+  Tune(int _x, String _title, String _altTitle, String _notation) {
+    this.x = _x;
+    this.title = _title;
+    this.altTitle = _altTitle;
+    this.notation = _notation;
+  }
+
+
   public int getX() {
     return this.x;
   }
@@ -23,6 +32,7 @@ public class Tune {
     return this.notation;
   }
 
+  // To display
   public String toString() {
     String s = String.valueOf(this.x) + ", " + this.title + ", " + this.altTitle;
     return s;
